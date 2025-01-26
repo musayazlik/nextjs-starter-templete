@@ -1,0 +1,9 @@
+{
+  "welcome": "Willkommen",
+  "login": "Anmelden",
+  "logout": "Abmelden",
+  "error": {
+    "required": "Dieses Feld ist erforderlich",
+    "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+  }
+}

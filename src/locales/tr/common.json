@@ -1,0 +1,9 @@
+{
+  "welcome": "Hoş Geldiniz",
+  "login": "Giriş Yap",
+  "logout": "Çıkış Yap",
+  "error": {
+    "required": "Bu alan zorunludur",
+    "invalidEmail": "Geçerli bir email adresi girin"
+  }
+}
