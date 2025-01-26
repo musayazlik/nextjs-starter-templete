@@ -20,6 +20,7 @@ export default function Home() {
 					<p className="text-xl text-muted-foreground">
 						A production-ready template with modern tools and best practices
 					</p>
+
 					<div className="flex items-center justify-center gap-4 pt-4">
 						<CustomButton size="lg" icon={Github}>
 							Get Started
