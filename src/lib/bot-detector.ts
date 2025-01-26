@@ -10,28 +10,28 @@ export function isBot(userAgent: string | null): boolean {
 
 	// Common bot user agents
 	const botUserAgents = [
-		"googlebot",       // Google Bot
-		"bingbot",         // Bing Bot
-		"slurp",           // Yahoo Bot
-		"duckduckbot",     // DuckDuckGo Bot
-		"baiduspider",     // Baidu Bot
-		"yandexbot",       // Yandex Bot
-		"facebot",         // Facebook Bot
-		"ia_archiver",     // Alexa Bot
-		"twitterbot",      // Twitter Bot
-		"linkedinbot",     // LinkedIn Bot
-		"embedly",         // Embedly Bot
+		"googlebot", // Google Bot
+		"bingbot", // Bing Bot
+		"slurp", // Yahoo Bot
+		"duckduckbot", // DuckDuckGo Bot
+		"baiduspider", // Baidu Bot
+		"yandexbot", // Yandex Bot
+		"facebot", // Facebook Bot
+		"ia_archiver", // Alexa Bot
+		"twitterbot", // Twitter Bot
+		"linkedinbot", // LinkedIn Bot
+		"embedly", // Embedly Bot
 		"quora link preview", // Quora Bot
-		"pinterest",       // Pinterest Bot
-		"slackbot",        // Slack Bot
-		"vkshare",         // VK Share Bot
-		"w3c_validator",   // W3C Validator
-		"whatsapp",        // WhatsApp Bot
-		"telegrambot",     // Telegram Bot
-		"discordbot",      // Discord Bot
-		"curl",            // cURL
+		"pinterest", // Pinterest Bot
+		"slackbot", // Slack Bot
+		"vkshare", // VK Share Bot
+		"w3c_validator", // W3C Validator
+		"whatsapp", // WhatsApp Bot
+		"telegrambot", // Telegram Bot
+		"discordbot", // Discord Bot
+		"curl", // cURL
 		"python-requests", // Python Requests
-		"node-fetch",      // Node.js Fetch
+		"node-fetch", // Node.js Fetch
 	];
 
 	// Convert user agent to lowercase and search in bot list
@@ -51,7 +51,7 @@ export function isBotByIP(ip: string | null): boolean {
 	const botIPRanges = [
 		"66.249.64.0/19", // Google Bot
 		"157.55.39.0/24", // Bing Bot
-		"207.46.0.0/16",  // Microsoft Bot
+		"207.46.0.0/16", // Microsoft Bot
 	];
 
 	// Check IP address (can use an example IP check function)
@@ -79,5 +79,7 @@ function isIPInRange(ip: string, range: string): boolean {
  * @returns number - Numerical value of the IP
  */
 function ipToNumber(ip: string): number {
-	return ip.split(".").reduce((acc, octet) => (acc << 8) + parseInt(octet, 10), 0);
+	return ip
+		.split(".")
+		.reduce((acc, octet) => (acc << 8) + parseInt(octet, 10), 0);
 }

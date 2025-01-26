@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export type Middleware = (
-  request: NextRequest
+	request: NextRequest,
 ) => NextResponse | undefined | Promise<NextResponse | undefined>;

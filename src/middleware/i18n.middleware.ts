@@ -6,17 +6,17 @@ const SUPPORTED_LOCALES = ["en", "tr", "de"];
 const DEFAULT_LOCALE = "en";
 
 export function i18nMiddleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+	const pathname = request.nextUrl.pathname;
 
-  const pathnameHasLocale = SUPPORTED_LOCALES.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
+	const pathnameHasLocale = SUPPORTED_LOCALES.some(
+		(locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
+	);
 
-  if (pathnameHasLocale) {
-    return NextResponse.next();
-  }
+	if (pathnameHasLocale) {
+		return NextResponse.next();
+	}
 
-  const locale = request.cookies.get("NEXT_LOCALE")?.value || DEFAULT_LOCALE;
-  const newUrl = new URL(`/${locale}${pathname}`, request.url);
-  return NextResponse.redirect(newUrl);
+	const locale = request.cookies.get("NEXT_LOCALE")?.value || DEFAULT_LOCALE;
+	const newUrl = new URL(`/${locale}${pathname}`, request.url);
+	return NextResponse.redirect(newUrl);
 }

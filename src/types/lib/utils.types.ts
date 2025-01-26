@@ -13,8 +13,8 @@ export type Nullable<T> = T | null | undefined;
  * @property statusCode - HTTP durum kodu
  */
 export interface ApiError {
-  message: string;
-  statusCode: number;
+	message: string;
+	statusCode: number;
 }
 
 /**
@@ -24,9 +24,9 @@ export interface ApiError {
  * @property success - İşlemin başarılı olup olmadığı
  */
 export interface ApiResponse<T> {
-  data: T;
-  message?: string;
-  success: boolean;
+	data: T;
+	message?: string;
+	success: boolean;
 }
 
 /**
@@ -41,9 +41,10 @@ export type KeyValue<T = string> = Record<string, T>;
  * @example
  * type AddFunction = FunctionType<[number, number], number>;
  */
-export type FunctionType<Args extends unknown[] = unknown[], Return = unknown> = (
-  ...args: Args
-) => Return;
+export type FunctionType<
+	Args extends unknown[] = unknown[],
+	Return = unknown,
+> = (...args: Args) => Return;
 
 /**
  * Bir nesnenin tüm özelliklerini optional yapar.
@@ -51,7 +52,7 @@ export type FunctionType<Args extends unknown[] = unknown[], Return = unknown> =
  * type PartialUser = PartialRecord<User>;
  */
 export type PartialRecord<T> = {
-  [P in keyof T]?: T[P];
+	[P in keyof T]?: T[P];
 };
 
 /**
@@ -60,7 +61,7 @@ export type PartialRecord<T> = {
  * type ReadonlyUser = ReadonlyRecord<User>;
  */
 export type ReadonlyRecord<T> = {
-  readonly [P in keyof T]: T[P];
+	readonly [P in keyof T]: T[P];
 };
 
 /**
@@ -69,7 +70,7 @@ export type ReadonlyRecord<T> = {
  * type UserName = PickRecord<User, "firstName" | "lastName">;
  */
 export type PickRecord<T, K extends keyof T> = {
-  [P in K]: T[P];
+	[P in K]: T[P];
 };
 
 /**
@@ -85,5 +86,5 @@ export type OmitRecord<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
  * type UserWithRequiredId = RequiredRecord<User, "id">;
  */
 export type RequiredRecord<T, K extends keyof T> = Omit<T, K> & {
-  [P in K]-?: T[P];
+	[P in K]-?: T[P];
 };

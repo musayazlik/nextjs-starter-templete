@@ -7,17 +7,17 @@ import { RefObject, useEffect } from "react";
 // useClickOutside(ref, () => setIsOpen(false));
 
 export const useClickOutside = <T extends HTMLElement>(
-  ref: RefObject<T>,
-  callback: () => void
+	ref: RefObject<T>,
+	callback: () => void,
 ) => {
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        callback();
-      }
-    };
+	useEffect(() => {
+		const handleClick = (e: MouseEvent) => {
+			if (ref.current && !ref.current.contains(e.target as Node)) {
+				callback();
+			}
+		};
 
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, [ref, callback]);
+		document.addEventListener("mousedown", handleClick);
+		return () => document.removeEventListener("mousedown", handleClick);
+	}, [ref, callback]);
 };
